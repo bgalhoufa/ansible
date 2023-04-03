@@ -1,0 +1,6 @@
+---
+all:
+  children:
+    switches:
+      hosts:
+        c9300lab: 

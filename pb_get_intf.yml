@@ -1,0 +1,24 @@
+---
+- name: 'PLAY 1: Capture and store interfaces'
+  hosts: switches
+  connection: network_cli
+  tasks:
+    - name: 'TASK 1: Get interfaces from switches'
+      ios_command:
+        commands: 'show ip int brief | i up'
+      register: cli_result
+
+    - name: 'TASK 2: Print interfaces output'
+      debug:
+        msg: '{{ cli_result }}'
+
+    - name: 'TASK 3: Create outputs/ folder'
+      file:
+        path: 'outputs'
+        state: directory
+      run_once: true
+
+    - name: 'TASK 4: Write ouput to a file'
+      copy:
+        content: '{{ cli_result.stdout[0] }}\n'
+        dest: 'outputs/{{ inventory_hostname }}.txt'

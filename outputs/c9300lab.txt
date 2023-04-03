@@ -1,0 +1,5 @@
+Vlan1                  unassigned      YES manual up                    up      
+Vlan2600               172.26.0.161    YES manual up                    up      
+Tw1/0/1                unassigned      YES unset  up                    up      
+Te1/0/48               unassigned      YES unset  up                    up      
+Ap1/0/1                unassigned      YES unset  up                    up\n
